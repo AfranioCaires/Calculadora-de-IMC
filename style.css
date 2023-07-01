@@ -1,0 +1,202 @@
+:root {
+    font-size: 62.5%;
+
+    --ff-main: 'Roboto', sans-serif;;
+
+    --clr-primary: hsla(194, 68%, 15%, 1);
+    --clr-accent: hsla(170, 100%, 14%, 1);
+
+    --clr-AccentWhite: hsla(0, 0%, 100%, 1);
+    --clr-bgDarkBlue: hsla(230, 78%, 8%, 1);
+    
+    --clr-boxBg: hsla(212, 23%, 89%, 1);
+    --clr-boxTextFocus: hsla(210, 11%, 15%, 1);
+    --clr-boxTexUnfocus: hsla(210, 9%, 31%, 0.5);
+    --clr-BoxUnfocusDimmer: hsla(210, 9%, 31%, 0.3);
+ 
+    --clr-elementsAccent: hsla(194, 97%, 31%, 1);
+    --clr-alert: hsla(0, 86%, 59%, 1);
+
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body * {
+    font-family: var(--ff-main);
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: var(--clr-bgDarkBlue);
+}
+
+form {
+    width: 30rem;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.card {
+    background-color: var(--clr-AccentWhite);
+    padding: 4.8rem 6.4rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    max-width: 42.8rem;
+    
+}
+
+.title {
+    color: var(--clr-primary);
+
+    font-size: 3.2rem;
+    line-height: 4rem;
+
+}
+
+.card h1 {
+    text-align: left;
+    margin-bottom: 3.2rem;
+}
+
+
+.inputCard {
+    display: grid;
+    font-weight: var(--fw-regular);
+}
+
+.inputCard label {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+
+    color: var(--clr-accent);
+    
+    margin-bottom: 0.8rem;
+}
+
+.inputCard input {
+    padding: 1.6rem;
+    background: var(--clr-boxBg);
+    border: 1px solid var(--clr-BoxUnfocusDimmer);
+    border-radius: 4px;
+
+    color: var(--clr-primary);
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+}
+
+input + label{
+    margin-top: 1.6rem;
+}
+
+.inputCard input:focus{
+    outline: 2px solid var(--clr-elementsAccent);
+}
+
+.button {
+    display: grid;
+    margin-top: 3.2rem;
+}
+
+form button { 
+    border: 0;
+    border-radius: 4px;
+
+    padding: 1.6rem;
+    color:var(--clr-AccentWhite);
+
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    background-color: var(--clr-elementsAccent);
+
+    transition: opacity 200ms;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+form button:is(:hover, :focus){
+    opacity: 0.8;
+}
+
+/* modal */
+
+.modalWrapper {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    transition: .3s;
+}
+
+.modal button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/* alert error */
+.alertError {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: .8rem 0;
+
+    background-color: var(--clr-alert);
+    color:var(--clr-AccentWhite);
+
+    font-weight: var(--fw-bold);
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transform:translateY(-30px);
+    transition: transform .5s;
+}
+
+.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.alertError.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
